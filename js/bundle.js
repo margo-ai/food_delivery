@@ -554,17 +554,24 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
 __webpack_require__.r(__webpack_exports__);
 function timer(id, deadline) {
   function getTimeRemaining(endtime) {
-    const t = Date.parse(endtime) - Date.parse(new Date()),
-          days = Math.floor(t / (1000 * 60 * 60 * 24)),
-          hours = Math.floor(t / (1000 * 60 * 60) % 24),
-          minutes = Math.floor(t / 1000 / 60 % 60),
-          seconds = Math.floor(t / 1000 % 60);
+    let days, hours, minutes, seconds;
+    const t = Date.parse(endtime) - Date.parse(new Date());
+
+    if (t <= 0) {
+      days = 0;
+      hours = 0;
+      minutes = 0;
+      seconds = 0;
+    } else {
+      days = Math.floor(t / (1000 * 60 * 60 * 24)), hours = Math.floor(t / (1000 * 60 * 60) % 24), minutes = Math.floor(t / 1000 / 60 % 60), seconds = Math.floor(t / 1000 % 60);
+    }
+
     return {
-      'total': t,
-      'days': days,
-      'hours': hours,
-      'minutes': minutes,
-      'seconds': seconds
+      total: t,
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
     };
   }
 
@@ -578,10 +585,10 @@ function timer(id, deadline) {
 
   function setclock(selector, endtime) {
     const timer = document.querySelector(selector),
-          days = timer.querySelector('#days'),
-          hours = timer.querySelector('#hours'),
-          minutes = timer.querySelector('#minutes'),
-          seconds = timer.querySelector('#seconds'),
+          days = timer.querySelector("#days"),
+          hours = timer.querySelector("#hours"),
+          minutes = timer.querySelector("#minutes"),
+          seconds = timer.querySelector("#seconds"),
           timeInterval = setInterval(updateClock, 1000);
     updateClock();
 
@@ -1952,23 +1959,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-window.addEventListener('DOMContentLoaded', () => {
-  const modalTimerId = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__.openModal)('.modal', modalTimerId), 300000);
-  (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_1__["default"])('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active');
-  (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])('[data-modal]', '.modal', modalTimerId);
-  (0,_modules_timer__WEBPACK_IMPORTED_MODULE_3__["default"])('.timer', '2022-06-01');
+window.addEventListener("DOMContentLoaded", () => {
+  const modalTimerId = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__.openModal)(".modal", modalTimerId), 300000);
+  (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_1__["default"])(".tabheader__item", ".tabcontent", ".tabheader__items", "tabheader__item_active");
+  (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])("[data-modal]", ".modal", modalTimerId);
+  (0,_modules_timer__WEBPACK_IMPORTED_MODULE_3__["default"])(".timer", "2022-08-01");
   (0,_modules_cards__WEBPACK_IMPORTED_MODULE_4__["default"])();
   (0,_modules_calc__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  (0,_modules_forms__WEBPACK_IMPORTED_MODULE_6__["default"])('form', modalTimerId);
+  (0,_modules_forms__WEBPACK_IMPORTED_MODULE_6__["default"])("form", modalTimerId);
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_7__["default"])({
-    container: '.offer__slider',
-    nextArrow: '.offer__slider-next',
-    prevArrow: '.offer__slider-prev',
-    slide: '.offer__slide',
-    totalCounter: '#total',
-    currentCounter: '#current',
-    wrapper: '.offer__slider-wrapper',
-    field: '.offer__slider-inner'
+    container: ".offer__slider",
+    nextArrow: ".offer__slider-next",
+    prevArrow: ".offer__slider-prev",
+    slide: ".offer__slide",
+    totalCounter: "#total",
+    currentCounter: "#current",
+    wrapper: ".offer__slider-wrapper",
+    field: ".offer__slider-inner"
   });
 });
 }();
