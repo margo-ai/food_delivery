@@ -1963,7 +1963,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const modalTimerId = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__.openModal)(".modal", modalTimerId), 300000);
   (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_1__["default"])(".tabheader__item", ".tabcontent", ".tabheader__items", "tabheader__item_active");
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])("[data-modal]", ".modal", modalTimerId);
-  (0,_modules_timer__WEBPACK_IMPORTED_MODULE_3__["default"])(".timer", "2022-08-01");
+  (0,_modules_timer__WEBPACK_IMPORTED_MODULE_3__["default"])(".timer", "2022-09-01");
   (0,_modules_cards__WEBPACK_IMPORTED_MODULE_4__["default"])();
   (0,_modules_calc__WEBPACK_IMPORTED_MODULE_5__["default"])();
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_6__["default"])("form", modalTimerId);
